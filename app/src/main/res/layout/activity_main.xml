@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawerLayout"
+    tools:context=".MainActivity">
+
+    <!-- 主内容视图一定要是DrawerLayout的第一个子视图【必须】 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:navigationIcon="@mipmap/toolbar"
+            app:subtitle="子标题"
+            app:subtitleTextColor="@color/white"
+            app:title="标题"
+            app:titleTextColor="@color/colorAccent"
+            app:popupTheme="@style/OverflowMenuStyle"/>
+<!--        popupTheme 用于指定溢出栏未显示在屏幕部分，点击显示之后的显示位置-->
+<!--            navigationIcon 指定的是返回建的图标样子-->
+
+        <!-- 模拟toolbar的左侧图标 -->
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="56dp"-->
+<!--            android:orientation="vertical"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:background="#ffffff">-->
+<!--            <Button-->
+<!--                android:id="@+id/img_menuBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="侧边栏"-->
+<!--                android:padding="8dp"/>-->
+<!--        </LinearLayout>-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="内容区域"
+            android:textSize="22sp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+    <!-- app:headerLayout : 指定头部布局的资源文件。
+        app:menu : 指定导航菜单的资源文件。
+        app:itemBackground : 指定菜单项的的背景。
+        app:itemTextColor : 指定菜单项的文字颜色。
+        app:itemTextAppearance : 指定菜单项的文字样式。
+        app:itemIconTint : 指定菜单项的图标色彩。-->
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        app:headerLayout="@layout/nav_drawer_header"
+        app:menu="@menu/nav_drawer_menu"
+        android:background="#ffffff"
+        app:itemTextAppearance="@style/nav_drawer_menu_text_style"
+        app:itemIconTint="@color/nav_drawer_menu_text_color" />
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
